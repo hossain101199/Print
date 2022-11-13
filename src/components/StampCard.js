@@ -2,7 +2,7 @@ import React from "react";
 
 const StampCard = ({ title = "" }) => {
   return (
-    <div id="stampCard" className="container ">
+    <div id="stampCard">
       {title}
     </div>
   );

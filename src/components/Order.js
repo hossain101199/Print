@@ -8,17 +8,12 @@ import CardTitle from "./CardTitle";
 import Total from "./Total";
 import StampCard from "./StampCard";
 import Table from "./Table";
+import PageHeader from "./PageHeader";
 
 const Order = () => {
   return (
     <div>
-      <div className="container position-relative py-5">
-        <div className="position-absolute top-35 start-0">
-          <img src={Logo} alt="" />
-        </div>
-        <h1 class="pageTitle text-center">Order</h1>
-      </div>
-      <hr className="mb-5" />
+      <PageHeader title="Order"></PageHeader>
       <div className="container d-flex align-items-center">
         <KeyPointInformation
           className="me-5"
@@ -75,7 +70,9 @@ const Order = () => {
           />
         ))}
       </div>
-      <StampCard title="Purchaser Stamp"></StampCard>
+      <div className="container">
+        <StampCard title="Purchaser Stamp"></StampCard>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../assets/logo/01.svg";
 import Calendar from "../assets/logo/calendar.svg";
 import Chart from "../assets/logo/chart.svg";
 import TimeCircle from "../assets/logo/timeCircle.svg";
@@ -9,6 +8,7 @@ import Card from "./Card";
 import KeyPointInformation from "./KeyPointInformation";
 import CardTitle from "./CardTitle";
 import Table from "./Table";
+import PageHeader from "./PageHeader";
 
 const data = [
   {
@@ -51,13 +51,7 @@ const data = [
 const PurchaseOrder = () => {
   return (
     <div>
-      <div className="container position-relative py-5">
-        <div className="position-absolute top-35 start-0">
-          <img src={Logo} alt="" />
-        </div>
-        <h1 class="pageTitle text-center">Purchase Order</h1>
-      </div>
-      <hr className="mb-5" />
+      <PageHeader title="Purchase Order"></PageHeader>
       <div className="container d-flex align-items-center">
         <KeyPointInformation
           className="me-5"
