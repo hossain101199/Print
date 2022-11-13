@@ -73,7 +73,6 @@ p {
 
 #total {
   gap: 14px;
-  margin-top: 35px;
 }
 
 #total .totalVATExclusive p:first-child {
@@ -96,10 +95,12 @@ p {
 
 #stampCard {
   width: fit-content;
-  padding: 20px 65px 20px 65px;
+  padding: 5px 5px 5px 5px;
   background: #ffffff;
   border: 1.5px dashed #e6e8ec;
   border-radius: 10px;
+}
+#purchaserName {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;

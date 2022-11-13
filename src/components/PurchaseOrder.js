@@ -7,82 +7,102 @@ import Location from "../assets/logo/location.svg";
 import Card from "./Card";
 import KeyPointInformation from "./KeyPointInformation";
 import CardTitle from "./CardTitle";
-import Table from "./Table";
 import PageHeader from "./PageHeader";
+import PurchaseOrderTable from "./PurchaseOrderTable";
+import { Document, Page } from "@react-pdf/renderer";
 
-const data = [
-  {
-    icom: Calendar,
-    pointNam: "PO Title:",
-    pointInfo: "Sample Text",
-  },
-  {
-    icom: Calendar,
-    pointNam: "PO Start Date:",
-    pointInfo: "July 28, 2021",
-  },
-  {
-    icom: Calendar,
-    pointNam: "PO End Date:",
-    pointInfo: "July 30, 2021",
-  },
-  {
-    icom: TimeCircle,
-    pointNam: "Rest Days For PO Expiry:",
-    pointInfo: "04 days",
-  },
-  {
-    icom: Wallet,
-    pointNam: "Payment Method:",
-    pointInfo: "Credit Card",
-  },
-  {
-    icom: Location,
-    pointNam: "Delivery Place:",
-    pointInfo: "15 Yemen Road, Yemen",
-  },
-  {
-    icom: Wallet,
-    pointNam: "Payment Grace Period:",
-    pointInfo: "30 Days",
-  },
-];
+const data = {
+  requester_logo: "http://127.0.0.1:8000/api/po-detail-for-pdf/3/",
+  po_end_date: "2019-08-24",
+  po_number: "string",
+  po_title: "string",
+  po_start_date: "2019-08-24",
+  po_expires_in: 0,
+  payment_method: 1,
+  delicery_place: "string",
+  payment_grace_period: "45",
+  po_items: [
+    {
+      item_name: "String",
+      item_description: "STRING",
+      quantity: 0,
+    },
+  ],
+};
 
 const PurchaseOrder = () => {
   return (
-    <div>
-      <PageHeader title="Purchase Order"></PageHeader>
-      <div className="container d-flex align-items-center">
-        <KeyPointInformation
-          className="me-5"
-          icon={Calendar}
-          pointNam="Date:"
-          pointInfo="July 30, 2021"
-        />
-        <KeyPointInformation
-          className="me-5"
-          icon={Chart}
-          pointNam="PO Number:"
-          pointInfo="02157"
-        />
-      </div>
-      <Card className="container mt-5">
-        <CardTitle titleName="Company Name: " titleInfo="Xyz Private Limited" />
-        <hr />
-        <div className="row">
-          {data.map((item) => (
-            <KeyPointInformation
-              key={item}
-              className="col-6 my-3"
-              icon={item.icom}
-              pointNam={item.pointNam}
-              pointInfo={item.pointInfo}
-            />
-          ))}
+    <Document>
+      <Page size="A4">
+        <PageHeader title="Purchase Order"></PageHeader>
+        <div className="container d-flex align-items-center">
+          <KeyPointInformation
+            className="me-5"
+            icon={Calendar}
+            pointNam="Date:"
+            pointInfo={data.po_end_date}
+          />
+          <KeyPointInformation
+            className="me-5"
+            icon={Chart}
+            pointNam="PO Number:"
+            pointInfo={data.po_number}
+          />
         </div>
-      </Card>
-      <Table></Table>
-    </div>
+        <Card className="container mt-5">
+          <CardTitle
+            titleName="Company Name: "
+            titleInfo="Xyz Private Limited"
+          />
+          <hr />
+          <div className="row">
+            <KeyPointInformation
+              className="col-6 my-3"
+              icon={Calendar}
+              pointNam="PO Title:"
+              pointInfo={data.po_title}
+            />
+            <KeyPointInformation
+              className="col-6 my-3"
+              icon={Wallet}
+              pointNam="Payment Method:"
+              pointInfo={data.payment_method}
+            />
+            <KeyPointInformation
+              className="col-6 my-3"
+              icon={Calendar}
+              pointNam="PO Start Date:"
+              pointInfo={data.po_start_date}
+            />
+            <KeyPointInformation
+              className="col-6 my-3"
+              icon={Location}
+              pointNam="Delivery Place:"
+              pointInfo={data.delicery_place}
+            />
+            <KeyPointInformation
+              className="col-6 my-3"
+              icon={Calendar}
+              pointNam="PO End Date:"
+              pointInfo={data.po_end_date}
+            />
+            <KeyPointInformation
+              className="col-6 my-3"
+              icon={Wallet}
+              pointNam="Payment Grace Period:"
+              pointInfo={data.payment_grace_period}
+            />
+            <KeyPointInformation
+              className="col-6 my-3"
+              icon={TimeCircle}
+              pointNam="Rest Days For PO Expiry:"
+              pointInfo={data.po_expires_in}
+            />
+          </div>
+        </Card>
+        <PurchaseOrderTable tableData={data.po_items}></PurchaseOrderTable>
+      </Page>
+    </Document>
   );
 };
 

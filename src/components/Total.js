@@ -1,17 +1,17 @@
 import React from "react";
 
-const Total = () => {
+const Total = ({ grandTotal }) => {
   return (
     <div
       id="total"
-      className="container d-flex justify-content-end align-items-center"
+      className="p-0 d-flex align-items-center"
     >
       <div className="totalVATExclusive d-flex flex-column align-items-center">
         <p>TOTAL </p>
         <p>*VAT Exclusive</p>
       </div>
       <div className="totalprice">
-        <p>SR 5565</p>
+        <p>SR {grandTotal ? grandTotal : "00"}</p>
       </div>
     </div>
   );
