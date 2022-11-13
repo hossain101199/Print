@@ -8,7 +8,6 @@ import Total from "./Total";
 import StampCard from "./StampCard";
 import PageHeader from "./PageHeader";
 import OrderTable from "./OrderTable";
-import { Document, Page } from "@react-pdf/renderer";
 
 const data = {
   supplier_company_name: "Company2",
@@ -48,96 +47,94 @@ const data = {
 
 const Order = () => {
   return (
-    <Document>
-      <Page size="A4">
-        <PageHeader title="Order"></PageHeader>
-        <div className="container d-flex align-items-center">
-          <KeyPointInformation
-            className="me-5"
-            icon={Calendar}
-            pointNam="Date:"
-            pointInfo="July 30, 2021"
-          />
-          <KeyPointInformation
-            className="me-5"
-            icon={Chart}
-            pointNam="PO Number:"
-            pointInfo="02157"
-          />
-        </div>
-        <div className="d-flex justify-content-between container gap-3 mt-5 p-0">
-          <Card className="w-100">
-            <CardTitle titleName="Requester Company Information" />
-            <hr />
-            <div className="">
-              <KeyPointInformation
-                className=" my-3"
-                pointNam="Company Name:"
-                pointInfo={data.requester_company_name}
-              />
-              <KeyPointInformation
-                className=" my-3"
-                pointNam="CR Number:"
-                pointInfo={data.requester_cr_number}
-              />
-              <KeyPointInformation
-                className=" my-3"
-                pointNam="VAT Registration Number:"
-                pointInfo={data.requester_vat_registration_number}
-              />
-            </div>
-          </Card>
-          <Card className="w-100">
-            <CardTitle titleName="Supplier Company Information" />
-            <hr />
-            <div className="">
-              <KeyPointInformation
-                className=" my-3"
-                pointNam="Company Name:"
-                pointInfo={data.supplier_company_name}
-              />
-              <KeyPointInformation
-                className=" my-3"
-                pointNam="CR Number:"
-                pointInfo={data.supplier_cr_number}
-              />
-              <KeyPointInformation
-                className=" my-3"
-                pointNam="VAT Registration Nmuber:"
-                pointInfo={data.supplier_vat_registration_number}
-              />
-            </div>
-          </Card>
-        </div>
-        <OrderTable tableData={data.offer_items}></OrderTable>
-        <div className="container d-flex align-items-center justify-content-between p-0 mt-5">
-          <div>
+    <div>
+      <PageHeader title="Order"></PageHeader>
+      <div className="container d-flex align-items-center">
+        <KeyPointInformation
+          className="me-5"
+          icon={Calendar}
+          pointNam="Date:"
+          pointInfo="July 30, 2021"
+        />
+        <KeyPointInformation
+          className="me-5"
+          icon={Chart}
+          pointNam="PO Number:"
+          pointInfo="02157"
+        />
+      </div>
+      <div className="d-flex justify-content-between container gap-3 mt-5 p-0">
+        <Card className="w-100">
+          <CardTitle titleName="Requester Company Information" />
+          <hr />
+          <div className="">
             <KeyPointInformation
               className=" my-3"
-              pointNam="Payment Method:"
-              pointInfo={data.payent_method}
+              pointNam="Company Name:"
+              pointInfo={data.requester_company_name}
             />
             <KeyPointInformation
               className=" my-3"
-              pointNam="Delivery Location:"
-              pointInfo={data.delivery_loc}
+              pointNam="CR Number:"
+              pointInfo={data.requester_cr_number}
             />
             <KeyPointInformation
               className=" my-3"
-              pointNam="Duration of Supply:"
-              pointInfo={data.delivery_duration}
+              pointNam="VAT Registration Number:"
+              pointInfo={data.requester_vat_registration_number}
             />
           </div>
-          <Total grandTotal={data.grand_total}></Total>
+        </Card>
+        <Card className="w-100">
+          <CardTitle titleName="Supplier Company Information" />
+          <hr />
+          <div className="">
+            <KeyPointInformation
+              className=" my-3"
+              pointNam="Company Name:"
+              pointInfo={data.supplier_company_name}
+            />
+            <KeyPointInformation
+              className=" my-3"
+              pointNam="CR Number:"
+              pointInfo={data.supplier_cr_number}
+            />
+            <KeyPointInformation
+              className=" my-3"
+              pointNam="VAT Registration Nmuber:"
+              pointInfo={data.supplier_vat_registration_number}
+            />
+          </div>
+        </Card>
+      </div>
+      <OrderTable tableData={data.offer_items}></OrderTable>
+      <div className="container d-flex align-items-center justify-content-between p-0 mt-5">
+        <div>
+          <KeyPointInformation
+            className=" my-3"
+            pointNam="Payment Method:"
+            pointInfo={data.payent_method}
+          />
+          <KeyPointInformation
+            className=" my-3"
+            pointNam="Delivery Location:"
+            pointInfo={data.delivery_loc}
+          />
+          <KeyPointInformation
+            className=" my-3"
+            pointNam="Duration of Supply:"
+            pointInfo={data.delivery_duration}
+          />
         </div>
-        <div className="container p-0 mt-5">
-          <StampCard
-            stamp={data.purchaser_stamp}
-            purchaserName={data.purchaser_name}
-          ></StampCard>
-        </div>
-      </Page>
-    </Document>
+        <Total grandTotal={data.grand_total}></Total>
+      </div>
+      <div className="container p-0 mt-5">
+        <StampCard
+          stamp={data.purchaser_stamp}
+          purchaserName={data.purchaser_name}
+        ></StampCard>
+      </div>
+    </div>
   );
 };
 

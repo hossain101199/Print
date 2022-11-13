@@ -1,6 +1,6 @@
 import React from "react";
 import Calendar from "../assets/logo/calendar.svg";
-import DocumentIcon from "../assets/logo/document.svg";
+import Document from "../assets/logo/document.svg";
 import Card from "./Card";
 import KeyPointInformation from "./KeyPointInformation";
 import CardTitle from "./CardTitle";
@@ -8,7 +8,6 @@ import StampCard from "./StampCard";
 import PageHeader from "./PageHeader";
 import OfferTable from "./OfferTable";
 import Total from "./Total";
-import { Document, Page } from "@react-pdf/renderer";
 
 const data = {
   supplier_company_name: "XYZ",
@@ -33,8 +32,7 @@ const data = {
 
 const Offer = () => {
   return (
-    <Document>
-    <Page size="A4">
+    <div>
       <PageHeader title="Offer"></PageHeader>
       <div className="container d-flex align-items-center">
         <KeyPointInformation
@@ -45,7 +43,7 @@ const Offer = () => {
         />
         <KeyPointInformation
           className="me-5"
-          icon={DocumentIcon}
+          icon={Document}
           pointNam="Offer Serial Number:"
           pointInfo="02157"
         />
@@ -101,8 +99,7 @@ const Offer = () => {
       <div className="container p-0 mt-5">
         <StampCard stamp="Seller Stamp"></StampCard>
       </div>
-      </Page>
-  </Document>
+    </div>
   );
 };
 
