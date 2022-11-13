@@ -1,5 +1,4 @@
 import React from "react";
-import { Page } from "@react-pdf/renderer";
 import Logo from "../assets/logo/01.svg";
 import Calendar from "../assets/logo/calendar.svg";
 import Chart from "../assets/logo/chart.svg";
@@ -9,6 +8,7 @@ import Location from "../assets/logo/location.svg";
 import Card from "./Card";
 import KeyPointInformation from "./KeyPointInformation";
 import CardTitle from "./CardTitle";
+import Table from "./Table";
 
 const data = [
   {
@@ -50,7 +50,7 @@ const data = [
 
 const PurchaseOrder = () => {
   return (
-    <Page>
+    <div>
       <div className="container position-relative py-5">
         <div className="position-absolute top-35 start-0">
           <img src={Logo} alt="" />
@@ -87,33 +87,8 @@ const PurchaseOrder = () => {
           ))}
         </div>
       </Card>
-      <Card className="container mt-5">
-        <table width="100%">
-          <thead style={{ padding: "20px" }}>
-            <tr>
-              <th>#</th>
-              <th>ITEM</th>
-              <th>DESCRIPTION</th>
-              <th>QTY</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Emil</td>
-              <td>Tobias</td>
-              <td>Linus</td>
-              <td>Linus</td>
-            </tr>
-            <tr>
-              <td>16</td>
-              <td>14</td>
-              <td>10</td>
-              <td>10</td>
-            </tr>
-          </tbody>
-        </table>
-      </Card>
-    </Page>
+      <Table></Table>
+    </div>
   );
 };
 
