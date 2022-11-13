@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../assets/logo/01.svg";
 import Calendar from "../assets/logo/calendar.svg";
 import Chart from "../assets/logo/chart.svg";
 import Card from "./Card";
